@@ -8,6 +8,7 @@ public class MessageBrokerApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MessageBrokerApplication.class, args);
+
 	}
 
 }

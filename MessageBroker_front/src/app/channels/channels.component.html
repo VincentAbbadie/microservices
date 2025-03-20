@@ -1,0 +1,13 @@
+<div class="card">
+    <h2>Channels list</h2>
+    @if (channels$ | async; as channels){
+        @for (channel of channels; track channel.id) {
+            <div class="card">
+                {{channel.name}}
+            </div>
+        }
+    }
+    @else {
+        <p>Channels loading</p>
+    }
+</div>
