@@ -22,11 +22,6 @@ public class ChannelController {
 		this.channelMapper = channelMapper;
 	}
 
-	@GetMapping("sayHello")
-	public String sayHello() {
-		return orderService.sayHello();
-	}
-
 	@GetMapping()
 	public List<ChannelResourceDTO> getAllChannels() {
 		return channelMapper.ChannelListToChannelResourceDTOList(orderService.findAllChannels());

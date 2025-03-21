@@ -1,23 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { AsyncPipe } from '@angular/common';
+import { Component, signal, WritableSignal } from '@angular/core';
 import { Channel, ChannelsService } from './channels.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-channels',
-  imports: [AsyncPipe],
   templateUrl: './channels.component.html',
   styleUrl: './channels.component.css',
   providers : [ChannelsService]
 })
-export class ChannelsComponent implements OnInit{
+export class ChannelsComponent{
 
-  public channels$!:Observable<Channel[]>;
+  public channelErrorSignal:WritableSignal<boolean>=signal(false);
+  public channelLoadingSignal:WritableSignal<boolean>=signal(true);
+  public channelSignal:WritableSignal<Channel[]>=signal([]);
 
-  constructor(private channelsService:ChannelsService){}
+  constructor(private channelsService:ChannelsService){
+    this.channelsService.getAllChannels(this.channelErrorSignal, this.channelLoadingSignal, this.channelSignal);
+  }
 
-  ngOnInit(): void {
-    this.channels$=this.channelsService.getAllChannels();
+  public selectChannel(channel:Channel):void{
+    console.log(channel);
+  }
+
+  public deleteChannel(channel:Channel):void{
+    console.log(channel);
   }
 
 }

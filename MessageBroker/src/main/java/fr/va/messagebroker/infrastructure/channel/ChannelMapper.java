@@ -22,11 +22,11 @@ public class ChannelMapper {
 	}
 
 	public List<ChannelResourceDTO> ChannelListToChannelResourceDTOList(Iterable<Channel> cList) {
-		final List<ChannelResourceDTO> crDTOList = new ArrayList<ChannelResourceDTO>();
+		final List<ChannelResourceDTO> cDTOList = new ArrayList<ChannelResourceDTO>();
 
-		cList.forEach(c -> crDTOList.add(ChannelToChannelResourceDTO(c)));
+		cList.forEach(c -> cDTOList.add(ChannelToChannelResourceDTO(c)));
 
-		return crDTOList;
+		return cDTOList;
 	}
 
 	private Channel ChannelRepositoryDTOToChannel(ChannelRepositoryDTO cDTO) {

@@ -10,10 +10,6 @@ public class ChannelService {
 		this.channelServiceProxy = channelServiceProxy;
 	}
 
-	public String sayHello() {
-		return "sayHeello";
-	}
-
 	public List<Channel> findAllChannels() {
 		return channelServiceProxy.findAllChannels();
 	}

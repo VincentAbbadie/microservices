@@ -1,0 +1,20 @@
+<div class="card">
+    <h2>Producers list</h2>
+    
+    @if(producerErrorSignal()){
+        <p class="error">Error while loading producers<br>Retrying ...</p>
+    }
+    @if(producerLoadingSignal()){
+        <p>Producers loading</p>
+    }@else{
+        @if(producerSignal().length==0){
+            <p>No Producer found</p>
+        }@else{
+            @for(producer of producerSignal(); track producer.id){
+                <button class="button">
+                    {{producer.name}}
+                </button>
+            }
+        }
+    }
+</div>
