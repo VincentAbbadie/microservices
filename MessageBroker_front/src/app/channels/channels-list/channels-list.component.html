@@ -1,0 +1,16 @@
+@if(channelErrorSignal()){
+<p class="error">Error while loading channels<br>Retrying ...</p>
+}
+@if(channelLoadingSignal()){
+<p>Channels loading</p>
+}@else{
+@if(channelSignal().length==0){
+<p>No channel found</p>
+}@else {
+@for (channel of channelSignal(); track channel.id) {
+<a class="button" routerLink="/channels/{{channel.id}}" routerLinkActive="active">
+    {{channel.name}}
+</a>
+}
+}
+}

@@ -1,6 +1,6 @@
 package fr.va.messagebroker.domain.producer;
 
-import java.util.List;
+import java.util.UUID;
 
 public class ProducerService {
 
@@ -10,8 +10,12 @@ public class ProducerService {
 		this.producerServiceProxy = producerServiceProxy;
 	}
 
-	public List<Producer> findAllProducer() {
+	public Iterable<Producer> findAllProducer() {
 		return producerServiceProxy.findAllProducers();
+	}
+
+	public Producer findProducer(UUID producerId) {
+		return producerServiceProxy.findProducer(producerId);
 	}
 
 }

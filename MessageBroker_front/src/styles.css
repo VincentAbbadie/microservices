@@ -3,28 +3,28 @@ body {
     color: #DEF;
 }
 
-h1, h2{
+h1,
+h2,
+h3 {
     text-align: center;
 }
 
-.card{
+.card {
     background-color: #333;
     border: .5rem solid #89A;
     border-radius: 1rem;
-    padding:.5rem;
-    margin:.5rem;
+    padding: .5rem;
+    margin: .5rem;
     box-shadow: inset 0 0 .6rem .1rem #DDF8;
 }
 
-.error{
-    color:red;
+.error {
+    color: red;
 }
 
-button{
-    display:block;
-}
-
-.button{
+.button {
+    text-decoration: none;
+    display: block;
     color: #DEF;
     background-color: #112;
     border: .2rem solid #29B;
@@ -32,10 +32,29 @@ button{
     cursor: pointer;
     text-align: center;
     padding: 1rem;
+    margin: .7rem;
     transition: background-color, .4s ease-in-out;
     box-shadow: inset 0 0 .6rem .1rem #3AC8;
 }
 
-.button:hover{
+.button:hover {
     background-color: #224;
+}
+
+.active {
+    color: #BB1;
+    ;
+    border-color: #AA0;
+    box-shadow: inset 0 0 .6rem .1rem #BB18;
+}
+
+
+#details-grid {
+    /* display: grid;
+    grid-auto-rows: minmax(auto, auto);
+    grid-template-columns: repeat(3, 1fr); */
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: start;
 }

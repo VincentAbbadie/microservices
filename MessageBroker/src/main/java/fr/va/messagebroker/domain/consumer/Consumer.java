@@ -1,12 +1,17 @@
 package fr.va.messagebroker.domain.consumer;
 
+import java.util.Set;
 import java.util.UUID;
+
+import fr.va.messagebroker.domain.channel.Channel;
 
 public class Consumer {
 
 	private UUID id;
 
 	private String name;
+
+	private Set<Channel> channels;
 
 	public UUID getId() {
 		return id;
@@ -22,6 +27,14 @@ public class Consumer {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Set<Channel> getChannels() {
+		return channels;
+	}
+
+	public void setChannels(Set<Channel> channels) {
+		this.channels = channels;
 	}
 
 }

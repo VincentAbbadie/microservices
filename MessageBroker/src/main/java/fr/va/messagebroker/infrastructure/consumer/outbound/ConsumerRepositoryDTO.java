@@ -1,10 +1,14 @@
 package fr.va.messagebroker.infrastructure.consumer.outbound;
 
+import java.util.Set;
 import java.util.UUID;
 
+import fr.va.messagebroker.infrastructure.channel.outbound.ChannelRepositoryDTO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -18,8 +22,8 @@ public class ConsumerRepositoryDTO {
 	@Column(name = "NAME")
 	private String name;
 
-	@Column(name = "CHANNELS_ID_FK")
-	private UUID channel_id;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "consumer")
+	private Set<ChannelRepositoryDTO> channels;
 
 	public UUID getId() {
 		return id;
@@ -37,12 +41,12 @@ public class ConsumerRepositoryDTO {
 		this.name = name;
 	}
 
-	public UUID getChannel_id() {
-		return channel_id;
+	public Set<ChannelRepositoryDTO> getChannels() {
+		return channels;
 	}
 
-	public void setChannel_id(UUID channel_id) {
-		this.channel_id = channel_id;
+	public void setChannels(Set<ChannelRepositoryDTO> channels) {
+		this.channels = channels;
 	}
 
 }

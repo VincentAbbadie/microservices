@@ -1,6 +1,6 @@
 package fr.va.messagebroker.domain.channel;
 
-import java.util.List;
+import java.util.UUID;
 
 public class ChannelService {
 
@@ -10,8 +10,12 @@ public class ChannelService {
 		this.channelServiceProxy = channelServiceProxy;
 	}
 
-	public List<Channel> findAllChannels() {
+	public Iterable<Channel> findAllChannels() {
 		return channelServiceProxy.findAllChannels();
+	}
+
+	public Channel findChannel(UUID channelId) {
+		return channelServiceProxy.findChannel(channelId);
 	}
 
 }

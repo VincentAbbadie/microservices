@@ -1,0 +1,16 @@
+@if(producerErrorSignal()){
+<p class="error">Error while loading producers<br>Retrying ...</p>
+}
+@if(producerLoadingSignal()){
+<p>Producers loading</p>
+}@else{
+@if(producerSignal().length==0){
+<p>No Producer found</p>
+}@else{
+@for(producer of producerSignal(); track producer.id){
+<a class="button" routerLink="/producers/{{producer.id}}" routerLinkActive="active">
+    {{producer.name}}
+</a>
+}
+}
+}

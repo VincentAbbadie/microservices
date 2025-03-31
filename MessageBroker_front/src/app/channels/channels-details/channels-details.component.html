@@ -1,0 +1,24 @@
+<div class="card">
+    <h2>Channel :
+        @if(channelSignal().length==0){
+        {{channelIdSignal()}}
+        }@else{
+        {{channelSignal()[0].name}}
+        }
+    </h2>
+
+    <div id="details-grid">
+        <div>
+            <h3>Producers</h3>
+            <app-producers-list [ids]="producerIdSignal()"></app-producers-list>
+        </div>
+        <div>
+            <h3>Channels</h3>
+            <app-channels-list [ids]="channelIdSignal()"></app-channels-list>
+        </div>
+        <div>
+            <h3>Consumers</h3>
+            <app-consumers-list [ids]="consumerIdSignal()"></app-consumers-list>
+        </div>
+    </div>
+</div>

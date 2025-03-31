@@ -1,5 +1,6 @@
 package fr.va.messagebroker.infrastructure.producer.inbound;
 
+import java.util.Set;
 import java.util.UUID;
 
 public class ProducerResourceDTO {
@@ -8,7 +9,7 @@ public class ProducerResourceDTO {
 
 	private String name;
 
-	private UUID channel_id;
+	private Set<UUID> channels_id;
 
 	public UUID getId() {
 		return id;
@@ -26,12 +27,12 @@ public class ProducerResourceDTO {
 		this.name = name;
 	}
 
-	public UUID getChannel_id() {
-		return channel_id;
+	public Set<UUID> getChannels_id() {
+		return channels_id;
 	}
 
-	public void setChannel_id(UUID channel_id) {
-		this.channel_id = channel_id;
+	public void setChannels_id(Set<UUID> channel_id) {
+		this.channels_id = channel_id;
 	}
 
 }

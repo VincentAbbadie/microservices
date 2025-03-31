@@ -1,10 +1,16 @@
 package fr.va.messagebroker.infrastructure.producer.outbound;
 
+import java.util.Set;
 import java.util.UUID;
 
+import fr.va.messagebroker.infrastructure.channel.outbound.ChannelRepositoryDTO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -18,8 +24,9 @@ public class ProducerRepositoryDTO {
 	@Column(name = "name")
 	private String name;
 
-	@Column(name = "CHANNELS_ID_FK")
-	private UUID channel_id;
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "product_to_channel", joinColumns = @JoinColumn(name = "PRODUCERS_ID_FK"), inverseJoinColumns = @JoinColumn(name = "CHANNELS_ID_FK"))
+	private Set<ChannelRepositoryDTO> channels;
 
 	public UUID getId() {
 		return id;
@@ -37,12 +44,12 @@ public class ProducerRepositoryDTO {
 		this.name = name;
 	}
 
-	public UUID getChannel_id() {
-		return channel_id;
+	public Set<ChannelRepositoryDTO> getChannels() {
+		return channels;
 	}
 
-	public void setChannel_id(UUID channel_id) {
-		this.channel_id = channel_id;
+	public void setChannels(Set<ChannelRepositoryDTO> channels) {
+		this.channels = channels;
 	}
 
 }

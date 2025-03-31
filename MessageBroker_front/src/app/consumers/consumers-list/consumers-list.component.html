@@ -1,0 +1,16 @@
+@if(consumerErrorSignal()){
+<p class="error">Error while loading consumers<br>Retrying...</p>
+}
+@if(consumerLoadingSignal()){
+<p>Consumer loading</p>
+}@else {
+@if(consumerSignal().length==0){
+<p>No Consumer found</p>
+}@else {
+@for (consumer of consumerSignal(); track consumer.id) {
+<a class="button" routerLink="/consumers/{{consumer.id}}" routerLinkActive="active">
+    {{consumer.name}}
+</a>
+}
+}
+}

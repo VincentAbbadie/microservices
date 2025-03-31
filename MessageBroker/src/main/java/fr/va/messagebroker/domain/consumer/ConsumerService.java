@@ -1,6 +1,7 @@
 package fr.va.messagebroker.domain.consumer;
 
 import java.util.List;
+import java.util.UUID;
 
 public class ConsumerService {
 
@@ -12,6 +13,10 @@ public class ConsumerService {
 
 	public List<Consumer> findAllConsumers() {
 		return consumerServiceProxy.findAllConsumers();
+	}
+
+	public Consumer findConsumer(UUID consumerId) {
+		return consumerServiceProxy.findConsumer(consumerId);
 	}
 
 }

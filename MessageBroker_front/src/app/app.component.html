@@ -1,6 +1,16 @@
 <h1>MESSAGE BROKER ADMIN</h1>
 <div id="header">
-  <app-channels></app-channels>
-  <app-producers></app-producers>
-  <app-consumers></app-consumers>
+  <div class="card">
+    <h2>Producers list</h2>
+    <app-producers-list [ids]="undefined"></app-producers-list>
+  </div>
+  <div class="card">
+    <h2>Channels list</h2>
+    <app-channels-list [ids]="undefined"></app-channels-list>
+  </div>
+  <div class="card">
+    <h2>Consumers list</h2>
+    <app-consumers-list [ids]="undefined"></app-consumers-list>
+  </div>
 </div>
+<router-outlet></router-outlet>
